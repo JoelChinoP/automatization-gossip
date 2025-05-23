@@ -4,7 +4,6 @@ import {
   MessageInput 
 } from '@/components/organisms';
 import { 
-  MessagePlaceholder, 
   FloatingIcon, 
   PrivacyIndicator 
 } from '@/components/molecules';
@@ -30,18 +29,14 @@ export const AnonymousOnlyLayout: React.FC<AnonymousOnlyLayoutProps> = ({
           </Typography>
         </div>
       </MessageCard>
-      
-      {/* Main Content Area */}
-      <div className="flex-1 relative">
-        <MessagePlaceholder />
-        <FloatingIcon />
-      </div>
-      
       {/* Footer */}
-      <div className="space-y-4">
-        <PrivacyIndicator />
+      <div className="space-y-4"> 
         <MessageInput onSend={onSendMessage} />
+        <PrivacyIndicator />
       </div>
+      
+      
+      
     </div>
   </GradientBackground>
 );
