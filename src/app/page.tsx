@@ -18,10 +18,9 @@ export default function Home() {
         <div className="flex flex-col gap-4 w-full max-w-md">
           <Link href="/message" className="w-full">
             <Button variant="primary" className="w-full">
-              Enviar mensaje
+              Enviar mensaje anónimo
             </Button>
           </Link>
-          
         </div>
       </div>
     </GradientBackground>

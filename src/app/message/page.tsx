@@ -1,21 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react';
 import { useMessage } from '@/hooks/useMessage';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
-import AnonymousMessageLayout from '@/components/templates/AnonymousMessageLayout';
+import { AnonymousOnlyLayout } from '@/components/templates';
 
 const SendMessageView = () => {
   const { sendMessage, isLoading } = useMessage();
-  const [username, setUsername] = useLocalStorage<string>('username', '');
-  const [isClient, setIsClient] = useState(false);
-
-  // Evita errores de hidratación
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  // Si el usuario no tiene un nombre guardado, usamos uno predeterminado
-  const displayName = isClient && username ? username : 'Usuario';
 
   const handleSendMessage = (message: string) => {
     sendMessage(message);
@@ -23,8 +11,7 @@ const SendMessageView = () => {
   };
 
   return (
-    <AnonymousMessageLayout 
-      username={displayName}
+    <AnonymousOnlyLayout 
       onSendMessage={handleSendMessage}
     />
   );
