@@ -3,7 +3,7 @@ import { useMessage } from '@/hooks/useMessage';
 import { AnonymousOnlyLayout } from '@/components/templates';
 
 const SendMessageView = () => {
-  const { sendMessage, isLoading } = useMessage();
+  const { sendMessage } = useMessage();
 
   const handleSendMessage = (message: string) => {
     sendMessage(message);

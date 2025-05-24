@@ -3,8 +3,7 @@ import {
   MessageCard, 
   MessageInput 
 } from '@/components/organisms';
-import { 
-  FloatingIcon, 
+import {  
   PrivacyIndicator 
 } from '@/components/molecules';
 import { Typography } from '@/components/atoms/Typography';
