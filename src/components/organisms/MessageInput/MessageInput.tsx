@@ -22,7 +22,7 @@ export const MessageInput: React.FC<MessageInputProps> = ({ onSend, className = 
         setTimeout(() => {
           setIsSent(false);
         }, 3000);
-      } catch (err) {
+      } catch {
         setError('Error al enviar el mensaje. Inténtalo de nuevo.');
         setTimeout(() => {
           setError(null);

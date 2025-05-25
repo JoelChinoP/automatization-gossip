@@ -1,9 +1,11 @@
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '@/firebase/config';
 
+import type { FieldValue, Timestamp } from 'firebase/firestore';
+
 export interface FirestoreMessage {
   content: string;
-  timestamp: any; // FirebaseFirestore.Timestamp
+  timestamp: FieldValue | Timestamp; // Firestore timestamp type
 }
 
 export const saveMessage = async (message: string): Promise<string> => {
