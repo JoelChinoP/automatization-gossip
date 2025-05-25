@@ -9,7 +9,7 @@ import {
 import { Typography } from '@/components/atoms/Typography';
 
 export interface AnonymousOnlyLayoutProps {
-  onSendMessage: (message: string) => void;
+  onSendMessage: (message: string) => Promise<void>;
 }
 
 export const AnonymousOnlyLayout: React.FC<AnonymousOnlyLayoutProps> = ({ 

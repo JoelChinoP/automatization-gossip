@@ -5,8 +5,8 @@ import { AnonymousOnlyLayout } from '@/components/templates';
 const SendMessageView = () => {
   const { sendMessage } = useMessage();
 
-  const handleSendMessage = (message: string) => {
-    sendMessage(message);
+  const handleSendMessage = async (message: string) => {
+    await sendMessage(message);
     console.log('Message sent:', message);
   };
 

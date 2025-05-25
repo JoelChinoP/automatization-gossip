@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react';
+import { saveMessage } from '@/firebase/messages';
 
 export interface Message {
   id: string;
@@ -12,23 +13,22 @@ export interface Message {
 export const useMessage = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const sendMessage = useCallback(async (content: string) => {
     setIsLoading(true);
     
     try {
-      // Simulate API call
+      // Guardar el mensaje en Firebase y obtener el ID generado
+      const messageId = await saveMessage(content);
+      
+      // Crear objeto de mensaje local con el ID de Firebase
       const newMessage: Message = {
-        id: Date.now().toString(),
+        id: messageId,
         content,
         timestamp: new Date(),
         isAnonymous: true
       };
       
       setMessages(prev => [...prev, newMessage]);
-      
-      // Here you would make the actual API call
-      // await fetch('/api/messages', { ... })
       
     } catch (error) {
       console.error('Error sending message:', error);
